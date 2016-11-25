@@ -15,7 +15,6 @@ module Geocoder::Lookup
     def query_url(query)
       method = query.reverse_geocode? ? "reverse" : "search"
       "#{protocol}://api-adresse.data.gouv.fr/#{method}/?" + url_query_string(query)
-      p "#{protocol}://api-adresse.data.gouv.fr/#{method}/?" + url_query_string(query)
     end
 
     private # ---------------------------------------------------------------
@@ -25,10 +24,8 @@ module Geocoder::Lookup
     end
 
     def results(query)
-      p "@@@@ RESULTS @@@@"
       return [] unless doc = fetch_data(query)
       if any_result?(query)
-        p "@@@@ THERE ARE RESULTS @@@@"
         return doc
       else
         raise_error(Geocoder::Error) ||
