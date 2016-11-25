@@ -20,17 +20,21 @@ module Geocoder::Lookup
     private # ---------------------------------------------------------------
 
     def valid_response?(response)
-      super(response) && fetch_data(query)['results']['features'].any?
+      super(response)
+    end
+
+    def any_result?(query)
+      fetch_data(query)['results']['features'].any?
     end
 
     def results(query)
       return [] unless doc = fetch_data(query)
-      if valid_response?(response)
+      if any_result?(query)
         result = doc
       else
         result = []
         raise_error(Geocoder::Error) ||
-            warn("Geportail.lu Geocoding API error")
+            warn("BAN Geocoding API error")
       end
       result
     end
