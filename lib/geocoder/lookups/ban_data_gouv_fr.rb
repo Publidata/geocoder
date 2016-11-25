@@ -23,6 +23,18 @@ module Geocoder::Lookup
       super(response) && fetch_data(query)['results']['features'].any?
     end
 
+    def results(query)
+      return [] unless doc = fetch_data(query)
+      if valid_response?(response)
+        result = doc
+      else
+        result = []
+        raise_error(Geocoder::Error) ||
+            warn("Geportail.lu Geocoding API error")
+      end
+      result
+    end
+
     #### PARAMS ####
 
     def query_url_params(query)
