@@ -39,7 +39,7 @@ module Geocoder::Lookup
 
     #### PARAMS ####
 
-    def query_url_params(query)‡
+    def query_url_params(query)
       query_ban_datagouv_fr_params(query).merge(super)
     end
 
