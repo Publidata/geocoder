@@ -19,29 +19,28 @@ module Geocoder::Lookup
 
     private # ---------------------------------------------------------------
 
-    def valid_response?(response)
-      super(response)
-    end
-
     def any_result?(query)
       fetch_data(query)['results']['features'].any?
     end
 
     def results(query)
+      p "@@@@ RESULTS @@@@"
       return [] unless doc = fetch_data(query)
       if any_result?(query)
-        result = doc
+        p "@@@@ THERE ARE RESULTS @@@@"
+        return doc
       else
-        result = []
         raise_error(Geocoder::Error) ||
             warn("BAN Geocoding API error")
       end
-      result
+      return []
     end
 
     #### PARAMS ####
 
     def query_url_params(query)
+      p "@@@@ PARAMS @@@@"
+      p query_ban_datagouv_fr_params(query)
       query_ban_datagouv_fr_params(query).merge(super)
     end
 
