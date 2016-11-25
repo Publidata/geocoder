@@ -15,6 +15,7 @@ module Geocoder::Lookup
     def query_url(query)
       method = query.reverse_geocode? ? "reverse" : "search"
       "#{protocol}://api-adresse.data.gouv.fr/#{method}/" + url_query_string(query)
+      p "#{protocol}://api-adresse.data.gouv.fr/#{method}/" + url_query_string(query)
     end
 
     private # ---------------------------------------------------------------
@@ -38,9 +39,7 @@ module Geocoder::Lookup
 
     #### PARAMS ####
 
-    def query_url_params(query)
-      p "@@@@ PARAMS @@@@"
-      p query_ban_datagouv_fr_params(query)
+    def query_url_params(query)‡
       query_ban_datagouv_fr_params(query).merge(super)
     end
 
