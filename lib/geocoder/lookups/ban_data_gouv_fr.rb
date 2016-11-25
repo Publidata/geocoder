@@ -1,5 +1,5 @@
 require 'geocoder/lookups/base'
-require 'geocoder/results/ban_datagouv_fr'
+require 'geocoder/results/ban_data_gouv_fr'
 
 module Geocoder::Lookup
   class BanDataGouvFr < Base
