@@ -124,15 +124,27 @@ module Geocoder::Result
     end
 
     def department_code
-      context[0] if context.lenght > 1
+      context[0] if context.length > 0
     end
 
+    # Monkey logic to handle fact Paris is both a city and a department
+    # in Île-de-France region
     def department_name
-      context[1] if context.lenght > 2
+      if context.length > 1
+        if context[1] == "Île-de-France"
+          "Paris"
+        else
+          context[1]
+        end
+      end
     end
 
     def region_name
-      context[2] if context.lenght > 3
+      if context.length == 2 && context[1] == "Île-de-France"
+        context[1]
+      elsif context.length > 2
+        context[2]
+      end
     end
 
     def country
