@@ -116,7 +116,7 @@ module Geocoder::Result
     end
 
     def postal_code
-      properties['postalcode']
+      properties['postcode']
     end
 
     def context
