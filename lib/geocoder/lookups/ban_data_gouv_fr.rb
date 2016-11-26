@@ -25,6 +25,7 @@ module Geocoder::Lookup
 
     def results(query)
       return [] unless doc = fetch_data(query)
+      p fetch_data(query)
       if any_result?(query)
         return doc
       else
