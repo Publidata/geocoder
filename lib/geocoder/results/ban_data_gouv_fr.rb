@@ -12,8 +12,6 @@ module Geocoder::Result
     response_attributes.each do |a|
       unless method_defined?(a)
         define_method a do
-          p a
-          p @data
           @data[a]
         end
       end
@@ -155,6 +153,11 @@ module Geocoder::Result
     def country_code
       "FR"
     end
+
+    #### ALIAS METHODS ####
+
+    alias_method :city, :city_name
+    alias_method :state, :department_name
 
     #### CITIES' METHODS ####
 
