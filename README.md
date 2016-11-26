@@ -703,9 +703,9 @@ This uses the PostcodeAnywhere UK Geocode service, this will geocode any string 
 * **Region**: FR
 * **SSL support**: yes
 * **Languages**: en / fr
-* **Documentation**: https://adresse.data.gouv.fr/api/
-* **Terms of Service**: Open Database Licence (ODbL) visit http://openstreetmap.fr/ban (in french)
-* **Limitations**: No restrictions on use
+* **Documentation**: https://adresse.data.gouv.fr/api/ (in french)
+* **Terms of Service**: https://adresse.data.gouv.fr/faq/ (in french)
+* **Limitations**: [Data licensed under Open Database License (ODbL) (you must provide attribution).](http://openstreetmap.fr/ban)
 
 ### IP Address Services
 
