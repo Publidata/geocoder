@@ -12,6 +12,8 @@ module Geocoder::Result
     response_attributes.each do |a|
       unless method_defined?(a)
         define_method a do
+          p a
+          p @data
           @data[a]
         end
       end
