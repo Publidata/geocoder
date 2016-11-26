@@ -8,7 +8,7 @@ module Geocoder::Result
     def self.response_attributes
       %w[limit attribution version licence type features]
     end
-
+    p @data
     response_attributes.each do |a|
       unless method_defined?(a)
         define_method a do
